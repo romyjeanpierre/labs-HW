@@ -73,3 +73,52 @@ for (let names of ninjaTurtles){
     newNinjaTurtles.push(names.toUpperCase()); 
 }
 console.log(newNinjaTurtles);
+
+//* Methods, Revisited
+const favMovies = ['Jaws', 'The Fellowship of the Ring', 'Howl\'s Moving Castle', 'Django Unchained', 'Cloud Atlas', 'The Usual Suspects', 'Toy Story', 'Conan the Barbarian', 'Titanic', 'Harry Potter', 'Fried Green Tomatoes', 'Volver', 'Oculus', 'Seven', 'Black Panther', 'Harry Potter', 'Imitation of Life', 'Snatch', 'Fast and Furious'];
+
+//Console log the index of Titanic
+console.log('Titanic');
+
+//Use the .sort method.
+//Thought Question: What did this do to the array? Did it permanently alter it? sort it in alphabetical order 
+favMovies.sort(); 
+console.table(favMovies);
+
+//Use the method pop.
+favMovies.pop()
+console.table(favMovies);
+
+//push "Guardians of the Galaxy".
+favMovies.push("Guardians of the Galaxy")
+console.table(favMovies); 
+
+//Reverse the array.
+const reversedFavMovies = favMovies.reverse();
+console.table(reversedFavMovies);
+
+//Use the shift method.
+favMovies.shift(); 
+console.table(favMovies); 
+
+
+//unshift - what does it return?
+favMovies.unshift('Love Jones'); 
+console.table(favMovies);
+
+
+//splice "Django Unchained" and add "Avatar" (try finding the index of "Django Unchained" instead of counting it yourself).
+//Thought Question: Did this permanently alter our array? 
+favMovies.splice(15, 1, "Avatar"); 
+console.table(favMovies);
+
+
+//slice the last half of the array. (Challenge yourself and try to programatically determine the middle of the array rather than counting it and hard coding it.)
+//Store the value of your slice in a variable and console.log it.
+//Thought Question: What is going on here?
+
+//console.log your final results.
+const middleIndex = Math.ceil(favMovies.length / 2); 
+console.log(middleIndex);
+const lastHalf = favMovies.slice(-middleIndex);
+console.table(lastHalf);
