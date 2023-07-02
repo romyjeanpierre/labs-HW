@@ -122,3 +122,27 @@ const middleIndex = Math.ceil(favMovies.length / 2);
 console.log(middleIndex);
 const lastHalf = favMovies.slice(-middleIndex);
 console.table(lastHalf);
+
+
+//* Where is Waldo
+let whereIsWaldo = 
+[
+    ["Timmy", "Frank"], 
+    "Eggbert",
+        ["Lucinda", "Jacc", "Neff", "Snoop"],
+                    ["Petunia", ["Baked Goods", "Waldo"]
+                    ]
+];
+
+// Remove Eggbert (hint look at the slice/splice methods)
+let whereIsWaldo1 = whereIsWaldo.splice(1, 1); 
+console.log(whereIsWaldo1);
+console.log(whereIsWaldo);
+
+//Change "Neff" to "No One".
+console.table(whereIsWaldo);
+whereIsWaldo.splice(1, [1, 2, "No One"]);
+console.log(whereIsWaldo)
+//Access and console.log "Waldo".
+console.log (whereIsWaldo[2][1][1]);
+                     
