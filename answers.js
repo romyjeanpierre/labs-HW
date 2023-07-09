@@ -65,3 +65,18 @@ console.log(wolfy);
 
 wolfy.unshift("Gameboy");
 console.log(wolfy);
+
+///////////////////////////////////////////////////////////////////////
+//Yell at the Ninja Turtles
+///////////////////////////////////////////////////////////////////////
+//Create an array with the members of the ninja turtles (Donatello, Leonardo, Raphael, Michaelangelo)
+let ninjaTurtles = ["Donatello", "Leonardo", "Raphael", "Michaelangelo"];
+console.log(ninjaTurtles);
+
+//Use a for of loop(not a typo - try it out! Try a for of loop) to call toUpperCase()on each of them and print out the result.
+const ninjaTurtles1 = []
+for (let item of ninjaTurtles){
+    ninjaTurtles1.push(item.toUpperCase()); 
+}
+console.log(ninjaTurtles1);
+
