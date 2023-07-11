@@ -157,12 +157,15 @@ console.log(whereIsWaldo[2][1][1]);
 ///////////////////////////////////////////////////////////////////////
 //Excited Kitten
 ///////////////////////////////////////////////////////////////////////
-/*let i = "Love me, pet me! HSSSSSS!"
-for (let pet = 1; pet <= 20; i++){
-    console.log(i)
-} if (pet % 2 === 0){
-    console.log (`...human...why you taking pictures of me?...` ||`...the catnip made me do it...` || `...why does the red dot always get away...`)
-}*/
+
+
+for (let  i = 0; i<= 20; i++)
+    if ( i % 2 === 0){
+        console.log("...human...why you taking pictures of me?..."|| "...the catnip made me do it..."|| "...why does the red dot always get away...")
+    }
+    else {
+        console.log(i + "Love me, pet me! HSSSSSS!");
+    }
 
 
 
