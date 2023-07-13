@@ -76,34 +76,3 @@ console.log(romy.getWeight());
 console.log(romy.eat)
 console.log(romy.buyHamster);
 console.table(romy);
-
-const timmy = new Person('Timmy', 5)
-console.table(timmy)
-timmy.eat(5)
-timmy.exercise(5)
-timmy.ageUp(9)
-timmy.ageUp(15)
-timmy.eat(2)
-timmy.exercise(2)
-timmy.buyHamster('Gus')
-console.table(timmy)
-
-
-////////////////////////////////////////////////////////////
-
-class Dinner{
-
-    constructor(appetizer, entree, dessert){
-        this.appetizer = appetizer
-        this.entree = entree
-        this.dessert = dessert
-    }
-}
-class Chef{
-    makeDinner(appetizer, entree, dessert){
-        return new Dinner(appetizer, entree, dessert)
-    }
-}
-
-const chefDinner = new Chef()
-console.log(chefDinner.makeDinner('Calamari', 'Salmon', 'cake'));
