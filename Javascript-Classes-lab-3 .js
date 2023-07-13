@@ -87,3 +87,22 @@ timmy.eat(2)
 timmy.exercise(2)
 timmy.buyHamster('Gus')
 console.table(timmy)
+
+////////////////////////////////////////////////////////////
+
+class Dinner{
+
+    constructor(appetizer, entree, dessert){
+        this.appetizer = appetizer
+        this.entree = entree
+        this.dessert = dessert
+    }
+}
+class Chef{
+    makeDinner(appetizer, entree, dessert){
+        return new Dinner(appetizer, entree, dessert)
+    }
+}
+
+const chefDinner = new Chef()
+console.log(chefDinner.makeDinner('Calamari', 'Salmon', 'cake'));
