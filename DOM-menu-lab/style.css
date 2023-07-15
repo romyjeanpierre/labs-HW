@@ -41,3 +41,26 @@
   #top-menu a:hover {
     background-color: var(--sub-menu-bg);
   }
+
+  header, #top-menu {
+    position: relative;
+  }
+  
+  #top-menu {
+    z-index: 20;
+  }
+  
+  #sub-menu {
+    width: 100%;
+    z-index: 10;
+    transition: top 0.5s ease-out;
+  }
+  
+  #sub-menu a:hover {
+    background-color: var(--top-menu-bg);
+  }
+  
+  nav a.active {
+    background-color: var(--sub-menu-bg);
+    color: var(--main-bg);
+  }
