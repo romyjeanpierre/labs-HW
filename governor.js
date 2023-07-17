@@ -64,7 +64,7 @@ const nicePostalMan = new PostalWorker('frontal, left & right hemisphere', 'mail
 const captainCook = new Chef('left hemisphere', 'culinary linguistics', 'social responsibility' );
 console.log(nicePostalMan);
 console.log(captainCook); 
-//const Letterman = new PostalWorker('things get better','mail','great Sea Urchin Ceviche');
+
 
 //////////////////////////////////////////////////////////////////
 nicePostalMan.control();
