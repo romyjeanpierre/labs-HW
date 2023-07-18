@@ -1,0 +1,36 @@
+body{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-weight: 400px;
+    font-size: xx-large;
+background-color: beige;
+
+}
+
+
+#board {
+    background-color: blue;
+    padding: ;
+
+    border: 10px solid rgb(15, 20, 118);
+    height: 540px;
+    width: 630px;
+
+    margin: 0 auto; 
+    display: flex; 
+    flex-wrap: wrap;
+
+.tile {
+   height: 70px; 
+   margin: 5p 
+}
+
+}
+
+
+.chip.red{
+    background: red;
+  }
+  
+.chip.yellow{
+    background: yellow;
+  }
