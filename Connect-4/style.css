@@ -1,30 +1,74 @@
-body{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-align: center;
+*{
+  margin: 0; 
+  padding:0; 
+}
+
+body {
+    display: grid; /* https://developer.mozilla.org/en-US/docs/Web/CSS/repeat */
+    place-items: center; 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /*text-align: center;
     font-weight: 400px;
     font-size: xx-large;
-background-color: beige;
+background-color: beige;*/
 
 }
 
+h1{
+  text-align: center;
+  margin: 18px 0 18px 0; 
+}
 
-#board {
+h2{
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.board {
     background-color: blue;
-    padding: ;
 
-    border: 10px solid rgb(15, 20, 118);
+    border: 2px solid rgb(15, 20, 118);
     height: 540px;
     width: 630px;
 
     margin: 0 auto; 
-    display: flex; 
+    display: grid; 
     flex-wrap: wrap;
+    grid-template-columns: repeat(7,1fr) ; /* the first argument specifies the number of times that the track list should be repeated. It is specified with an integer value of 1 or more
+    the second argument specifies the set of tracks that will be repeated.
+    */
+}
+
+ul {
+  display: grid; 
+  place-items: center; 
+}
+
+/* Circles
+It's almost as easy to create a circle. To create a circle we can set the border-radius on the element. This will create curved corners on the element.
+
+If we set it to 50% it will create a circle. If you set a different width and height we will get an oval instead.
+source: https://www.freecodecamp.org/news/css-shapes-explained-how-to-draw-a-circle-triangle-and-more-using-pure-css/#:~:text=To%20create%20a%20circle%20we,will%20get%20an%20oval%20instead.
+*/
+ul p {
+  background-color: white;
+  width: 70px;
+  height: 70px;
+  margin: 4px;
+  border: 2px solid rgb(15, 20, 118);
+  border-radius: 90px;
+}
+
+ul:hover {
+  cursor: grab; 
+}
 
 .tile {
-   height: 70px; 
-   margin: 5p 
-}
+   background-color: beige;
+   height: 90px; 
+   width: 90px
+      }
 
-}
 
 
 .chip.red{
