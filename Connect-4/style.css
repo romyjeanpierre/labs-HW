@@ -4,7 +4,7 @@
 }
 
 body {
-    display: grid; /* https://developer.mozilla.org/en-US/docs/Web/CSS/repeat */
+    display: flex; /* https://developer.mozilla.org/en-US/docs/Web/CSS/repeat */
     place-items: center; 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     /*text-align: center;
@@ -28,15 +28,16 @@ h2{
     background-color: blue;
 
     border: 2px solid rgb(15, 20, 118);
-    height: 540px;
-    width: 630px;
+    height: 640px;
+    width: 770px;
 
     margin: 0 auto; 
     display: grid; 
     flex-wrap: wrap;
-    grid-template-columns: repeat(7,1fr) ; /* the first argument specifies the number of times that the track list should be repeated. It is specified with an integer value of 1 or more
+    grid-template-columns: repeat(7,110px) ; /* the first argument specifies the number of times that the track list should be repeated. It is specified with an integer value of 1 or more
     the second argument specifies the set of tracks that will be repeated.
     */
+    
 }
 
 ul {
@@ -52,15 +53,17 @@ source: https://www.freecodecamp.org/news/css-shapes-explained-how-to-draw-a-cir
 */
 ul p {
   background-color: white;
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   margin: 4px;
   border: 2px solid rgb(15, 20, 118);
   border-radius: 90px;
+  display: flex
 }
 
 ul:hover {
   cursor: grab; 
+  background-color: blueviolet;
 }
 
 .tile {
