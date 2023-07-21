@@ -4,7 +4,7 @@
 }
 
 body {
-    /*display: flex; /* https://developer.mozilla.org/en-US/docs/Web/CSS/repeat */
+    /*display: flex; /* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
     place-items: center; 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;

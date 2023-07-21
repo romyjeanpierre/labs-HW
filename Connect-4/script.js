@@ -73,10 +73,10 @@ function Piece() {
 
 function whoIsTheWinner() {
      // Rows/Horizontal - run from left to right  or right to left 
-     for (let x = 0; x < rows; x++) {
-         for (let z = 0; z < columns - 3; z++){
+     for (let x = 0; x < rows; x ++) {
+         for (let z = 0; z < columns - 3; z ++){
             if (board[x][z] != ' ') {
-                if (board[x][z] == board[x][x+1] && board[x][z+1] == board[x][z+2] && board[x][z+2] == board[x][z+3]) {
+                if (board[x][z] == board[x][x + 1] && board[x][z+1] == board[x][z+2] && board[x][z+2] == board[x][z+3]) {
                     theWinner(x, z);
                     return;
                 }
