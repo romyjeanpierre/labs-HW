@@ -4,17 +4,17 @@
 }
 
 body {
-    display: flex; /* https://developer.mozilla.org/en-US/docs/Web/CSS/repeat */
+    /*display: flex; /* https://developer.mozilla.org/en-US/docs/Web/CSS/repeat */
     place-items: center; 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    /*text-align: center;
+    text-align: center;
     font-weight: 400px;
     font-size: xx-large;
-background-color: beige;*/
+    background-color: whitesmoke
 
 }
 
-h1{
+/*h1{
   text-align: center;
   margin: 18px 0 18px 0; 
 }
@@ -22,28 +22,30 @@ h1{
 h2{
   text-align: center;
   margin-bottom: 18px;
-}
+}*/
 
-.board {
+#board { /* board is 6 x 7 so each section 
+  6x7 = 42 x 90px = 3780/6 = 630 (width)
+  3780/7 = 540 (height)*/
     background-color: blue;
 
     border: 2px solid rgb(15, 20, 118);
-    height: 640px;
-    width: 770px;
+    height: 540px;
+    width: 630px;
 
     margin: 0 auto; 
-    display: grid; 
+    display: flex; 
     flex-wrap: wrap;
-    grid-template-columns: repeat(7,110px) ; /* the first argument specifies the number of times that the track list should be repeated. It is specified with an integer value of 1 or more
+    /*grid-template-columns: repeat(7,110px) ; /* the first argument specifies the number of times that the track list should be repeated. It is specified with an integer value of 1 or more
     the second argument specifies the set of tracks that will be repeated.
     */
     
 }
 
-ul {
+/*ul {
   display: grid; 
   place-items: center; 
-}
+}*/
 
 /* Circles
 It's almost as easy to create a circle. To create a circle we can set the border-radius on the element. This will create curved corners on the element.
@@ -51,33 +53,28 @@ It's almost as easy to create a circle. To create a circle we can set the border
 If we set it to 50% it will create a circle. If you set a different width and height we will get an oval instead.
 source: https://www.freecodecamp.org/news/css-shapes-explained-how-to-draw-a-circle-triangle-and-more-using-pure-css/#:~:text=To%20create%20a%20circle%20we,will%20get%20an%20oval%20instead.
 */
-ul p {
+.tile  { /* add tile class  */
   background-color: white;
-  width: 80px;
-  height: 80px;
-  margin: 4px;
-  border: 2px solid rgb(15, 20, 118);
-  border-radius: 90px;
-  display: flex
+  width: 76px; 
+  height: 76px;
+  margin: 5px;
+  border: 2px solid black; /* create a thin border */
+  border-radius: 50px; /* as long as the height and width are the same, If the border-radius is set at 50% it will create a circle. */
+  display: flex;
 }
 
-ul:hover {
+.tile:hover {
   cursor: grab; 
-  background-color: blueviolet;
+  background-color: rgb(159, 43, 226);
 }
 
-.tile {
-   background-color: beige;
-   height: 90px; 
-   width: 90px
-      }
 
+.redChip {
+  background-color: red;
+  border: 2px solid black;
+}
 
-
-.chip.red{
-    background: red;
-  }
-  
-.chip.yellow{
-    background: yellow;
-  }
+.yellowChip {
+  background-color: yellow;
+  border: 2px solid black;
+}
