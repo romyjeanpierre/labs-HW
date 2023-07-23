@@ -1,7 +1,7 @@
 # Connect 4 Game 
 
 ## About The Project
-Connect four is a two-player game in which there will be a player red and a player yellow. Player red will start the game. 
+Connect four is a two-player game in which there will be a player 1/ red and a player 2/yellow. Player red will start the game. The game board is a 6x7 grid. Two players take turns to drop a checker into any of the grid's columns. The chip can fall only to the lowest empty location within the selected column. The objective of the game is to be the first to build a row of four checkers horizontally, vertically, or diagonally.
 
 [![Play Connect 4][![Alt text](image.png)]](http://127.0.0.1:5500/labs-hw/Connect-4/index.html)
 
@@ -23,84 +23,54 @@ Connect four is a two-player game in which there will be a player red and a play
 
 
 
-<!-- GETTING STARTED -->
-## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+* JavaScript, HTML and CSS
+* knowledge of DOM, flexbox, loops, functions, arrays, classes and events. 
 
-### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+## Implementation
+
+
+### HTML
+1) 
+    Set up the HTML file 
+    - Add script.js file 
+    - Link the the style.css 
+    - Create a heading tag  - CONNECT 4  
+    - Create a div id for the board and a div class for each cell in every row and column on the board - totaling 42 
+
+### CSS
+2)  
+    Style your game and create the board with CSS
+    - Center the items in the body of the page, choose the font style, size and background color 
+    - The game board is displayed using flex. Each cell is a div element with a border and border-radius to make it look like a checker. The color of the checker is determined by the CSS classes red and yellow.
+    
+### JavaScript
+3)  
+    The game board is represented as a two-dimensional array in  JavaScript. Each cell in the array corresponds to a cell on the game board. The value of each cell in the array is either 0 (empty), 1 (player 1's checker), or 2 (player 2's checker).
+
+    The game logic is implemented in JavaScript. The cellClick function handles the click event for each cell. It determines the lowest empty location in the clicked column and drops the current player's checker there. It then checks if the current player has won the game and updates the game state accordingly.
+
+    The checkWin function checks if the current player has won the game. It checks all possible directions (horizontal, vertical, and diagonal) for a line of four checkers of the same color.
+
+    The restartGame function resets the game state and starts a new game.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-<!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+To play the game, open the HTML file in a web browser. The game starts with player 1's turn. Click on a column to drop a checker. The game ends when one player forms a line of four checkers or when all cells are filled. Click the "Restart Game" button to start a new game.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## Additional features to be added
+    - Allow players the option to decide who plays first
 
 
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
 ### Contact
 
 Your Name - [Romy Jean-Pierre](romyjeanpierre@yahoo.com) - romyjeanpierre@yahoo.com
@@ -111,20 +81,21 @@ Project Link: [Github](https://github.com/romyjeanpierre/labs-HW/tree/main/Conne
 
 
 
-<!-- ACKNOWLEDGMENTS -->
+
 ## Acknowledgments
 
 * [README Template](https://github.com/othneildrew/Best-README-Template/blob/master/BLANK_README.md?plain=1)
-* [parseInt()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
-* [coords](https://www.w3schools.com/jsref/prop_area_coords.asp)
 * [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 * [CSS Shapes Explained: How to Draw a Circle, Triangle, and More Using Pure CSS](https://www.freecodecamp.org/news/css-shapes-explained-how-to-draw-a-circle-triangle-and-more-using-pure-css/#:~:text=To%20create%20a%20circle%20we,will%20get%20an%20oval%20instead)
-* [onload Event](https://www.w3schools.com/jsref/event_onload.asp)
-* [JavaScript Split](https://www.freecodecamp.org/news/javascript-split-how-to-split-a-string-into-an-array-in-js/)
+* [Rules of Connect 4](https://www.fgbradleys.com/rules/Connect%20Four.pdf)
 * [How to Build Connect 4 with Javascript HTML CSS](https://www.youtube.com/watch?v=4ARsthVnCTg&t=829s)
-*  [Creating Connect 4 in HTML, CSS, and JavaScript: Part 1 (Making the Grid)](https://www.youtube.com/watch?v=AwT7qxdz-rg&t=10s)
 * [How to make a Connect-4 Game with html, css & javascript](https://www.youtube.com/watch?v=TGJlcQWPHJc&t=615s)
-
+* [0 auto in CSS](https://www.tutorialspoint.com/how-does-auto-property-work-in-margin-0-auto-in-css#:~:text=The%20%22margin%3A%200%20auto%22,enables%20this%20centering%20to%20occur.)
+* [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+* [JavaScript Array map()](https://www.w3schools.com/jsref/jsref_map.asp)
+* [Array.prototype.fill()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill)
+* [HTMLElement: dataset property](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset)
+* [Dataset (dataset) Property - Javascript DOM](https://www.youtube.com/watch?v=Pt8RyyUWCtM)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

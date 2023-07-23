@@ -14,15 +14,6 @@ body {
 
 }
 
-/*h1{
-  text-align: center;
-  margin: 18px 0 18px 0; 
-}
-
-h2{
-  text-align: center;
-  margin-bottom: 18px;
-}*/
 
 #board { /* board is 6 x 7 so each section 
   6x7 = 42 x 90px = 3780/6 = 630 (width)
@@ -33,27 +24,17 @@ h2{
     height: 540px;
     width: 630px;
 
-    margin: 0 auto; 
+    margin: 0 auto; /*The "margin: 0 auto" property allows the elements within their container to be horizontally centered.*/
     display: flex; 
-    flex-wrap: wrap;
-    /*grid-template-columns: repeat(7,110px) ; /* the first argument specifies the number of times that the track list should be repeated. It is specified with an integer value of 1 or more
-    the second argument specifies the set of tracks that will be repeated.
-    */
+    flex-wrap: wrap ;/* flex items will wrap onto multiple lines, from top to bottom. By default, flex items will all try to fit onto one line. */
     
 }
 
-/*ul {
-  display: grid; 
-  place-items: center; 
-}*/
 
-/* Circles
-It's almost as easy to create a circle. To create a circle we can set the border-radius on the element. This will create curved corners on the element.
-
-If we set it to 50% it will create a circle. If you set a different width and height we will get an oval instead.
+/*If we set it to 50% it will create a circle. If you set a different width and height we will get an oval instead.
 source: https://www.freecodecamp.org/news/css-shapes-explained-how-to-draw-a-circle-triangle-and-more-using-pure-css/#:~:text=To%20create%20a%20circle%20we,will%20get%20an%20oval%20instead.
 */
-.tile  { /* add tile class  */
+.cell  { /* add cell class  */
   background-color: white;
   width: 76px; 
   height: 76px;
@@ -63,18 +44,35 @@ source: https://www.freecodecamp.org/news/css-shapes-explained-how-to-draw-a-cir
   display: flex;
 }
 
-.tile:hover {
+.cell:hover {
   cursor: grab; 
   background-color: rgb(159, 43, 226);
 }
 
 
-.redChip {
+.red {
   background-color: red;
   border: 2px solid black;
 }
 
-.yellowChip {
+.yellow {
   background-color: yellow;
   border: 2px solid black;
+}
+
+#message {
+  text-align: center;
+  margin-top: 20px; 
+}
+
+#restart {
+  display: none; 
+  margin: 20px auto; 
+  padding: 10px 20px; 
+  background-color: blue;
+  cursor: pointer;
+}
+
+#restart :hover {
+  background-color: blueviolet;
 }

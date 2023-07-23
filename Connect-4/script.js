@@ -1,132 +1,73 @@
-let RedP = "Red";
-let YellowP = "Yellow";
-let firstPlayer= RedP;
 
-let gameOver = false;
-let board;// there are 7 columns and 6 rows 
-
-let rows = 6; //vertical will be x
-let columns = 7;// horizontal will be z 
-let trackColumns = []; 
+let board = Array(6).fill().map(() => Array(7).fill(0)); /*I defined the board here using the array constructor to pass in the length of the array. filling it and mapping over each object within the array.Array.fill creates an array with six elements in it. the fill method initializes every element with a undefined value. the map function only works with arrays. if the fill function wasn't here it would be an empty array. the map function is used to replace each undefined element with a new array of side 7 and i'm filling all the array with a value of 0. so it prints the 6 by 7 array */
+let currentPlayer = 1; //created a variable for the current player 
+let gameActive = true;
 
 
-//onload is most often used within the <body> element to execute a script once a web page has completely loaded all content (including images, script files, CSS files, etc.).//https://www.w3schools.com/jsref/event_onload.asp
-window.onload = function() { 
-    setGame();
-}
-
-function setGame() { //this function will populate the tile within the board
-    board = [];//the board will correspond to the tiles in the html page
-    trackColumns = [5, 5, 5, 5, 5, 5, 5]; // for each column has 5 tiles -1 
-
-    for (let x = 0; x < rows; x++) {
-        let row = [];
-        for (let z = 0; z < columns; z++) {
-            row.push(' ');
-            // In HTML
-            let tile = document.createElement("div");
-            tile.id = x.toString() + "-" + z.toString();//create an ID that correspond to the array in JS 
-            tile.classList.add("tile");//add a class for the tile 
-            tile.addEventListener("click", Piece);
-            document.getElementById("board").append(tile);/*append this tag in the board in HTML. this is similar to adding <div id = "" class = "title"></div> 42 times in HTML. however by appending it, js eliminate that process */
+//initial function for creating the board
+function createBoard() {
+    const boardDiv = document.getElementById('board'); //diving this element ID board 
+    boardDiv.innerHTML = '';//passing an inner HTML just to initialize some kind of value in it
+    for(let row = 0; row < 6; row++) { //then create a for loop to run the rest # of rows i find in this array to 6. so 6 times it will run
+        for(let col = 0; col < 7; col++) {//nested for loop just to get to every cell for each row and column. so it will run 7 times so in total 42 cells
+            const cellDiv = document.createElement('div'); //*creates a cell
+            cellDiv.dataset.row = row; //here i'm accessing and setting  the values of each cell within the rows and columns from HTML and adding 
+            cellDiv.dataset.col = col;
+            cellDiv.classList.add('cell');
+            if(board[row][col] === 1) cellDiv.classList.add('red'); //*applying conditional classes. if the cell has a value of 1 then add the red class to it 
+            if(board[row][col] === 2) cellDiv.classList.add('yellow');
+            cellDiv.addEventListener('click', cellClick);// i added eventlistener so when you click on a cell it runs the second function below
+            boardDiv.appendChild(cellDiv);
         }
-        board.push(row);//this adds the above function to the JS board 
     }
 }
 
-//define the function here 
-//If game is over we return do nothing 
-
-function Piece() {
-    if (gameOver) {
+function cellClick(e) {
+    if(!gameActive) return;//if the game is inactive it automatically reboots it. so when the game end 
+    const col = e.target.dataset.col;
+    let row = 5;
+    while(row >= 0) {
+        if(board[row][col] === 0) break; 
+        row--;
+    }
+    if(row === -1) return;
+    board[row][col] = currentPlayer;
+    createBoard();
+    if(checkWin(currentPlayer)) {
+        gameActive = false;
+        document.getElementById('message').innerText = 'Player ' + currentPlayer + ' wins!';
+        document.getElementById('restart').style.display = 'block';
         return;
     }
-
-    //get coords of that tile clicked
-    let area = this.id.split("-");/*The split() method takes a pattern and divides a String into an ordered list of substrings by searching for the pattern, puts these substrings into an array, and returns the array.*/
-    let x = parseInt(area[0]);
-    let z = parseInt(area[1]);//The parseInt() function parses a string argument and returns an integer of the specified radix (the base in mathematical numeral systems). https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
-
-    // figure out which row the current column should be on
-    x = trackColumns[z]; 
-
-    if (x < 0) { 
-        return;
-    }
-
-    board[x][z] = firstPlayer; //update JS board
-    let tile = document.getElementById(x.toString() + "-" + z.toString());
-    if (firstPlayer == RedP) {
-        tile.classList.add("redChip");
-        firstPlayer = YellowP;
-    }
-    else {
-        tile.classList.add("yellowChip");
-        firstPlayer = RedP;
-    }
-
-    x -= 1; //update the row height for that column
-    trackColumns[z] = x; //update the array
-
-    whoIsTheWinner();
+    currentPlayer = currentPlayer === 1 ? 2 : 1;
+    document.getElementById('message').innerText = 'Player ' + currentPlayer + '\'s turn';
 }
 
-function whoIsTheWinner() {
-     // Rows/Horizontal - run from left to right  or right to left 
-     for (let x = 0; x < rows; x ++) {
-         for (let z = 0; z < columns - 3; z ++){
-            if (board[x][z] != ' ') {
-                if (board[x][z] == board[x][x + 1] && board[x][z+1] == board[x][z+2] && board[x][z+2] == board[x][z+3]) {
-                    theWinner(x, z);
-                    return;
-                }
-            }
-         }
-    }
-
-    // Columns/vertical - goes up and down
-    for (let z = 0; z < columns; z++) {
-        for (let x = 0; x < rows - 3; x++) {
-            if (board[x][z] != ' ') {
-                if (board[x][z] == board[x+1][z] && board[x+1][z] == board[x+2][z] && board[x+2][z] == board[x+3][z]) {
-                    theWinner(x, z);
-                    return;
-                }
-            }
-        }
-    }
-
-    // Inverse diagonal - all the entries are zero except those on the diagonal going from the lower left corner to the upper right corner (↗),
-    for (let x = 0; x < rows - 3; x++) {
-        for (let z = 0; z < columns - 3; z++) {
-            if (board[x][z] != ' ') {
-                if (board[x][z] == board[x+1][z+1] && board[x+1][z+1] == board[x+2][z+2] && board[x+2][z+2] == board[x+3][z+3]) {
-                    theWinner(x, z);
-                    return;
-                }
-            }
-        }
-    }
-
-    // diagonal - from one corner odf the board to the other 
-    for (let x = 3; x < rows; x++) {
-        for (let z = 0; z < columns - 3; z++) {
-            if (board[x][z] != ' ') {
-                if (board[x][z] == board[x-1][z+1] && board[x-1][z+1] == board[x-2][z+2] && board[x-2][z+2] == board[x-3][z+3]) {
-                    theWinner(x, z);
-                    return;
-                }
-            }
-        }
+function checkWin(player) {
+for(let row = 0; row < 6; row++) {
+    for(let col = 0; col < 7; col++) {
+    if(checkDirection(row, col, 1, 0, player) || checkDirection(row, col, 0, 1, player) || checkDirection(row, col, 1, 1, player) || checkDirection(row, col, 1, -1, player)) return true;
     }
 }
-
-function theWinner(x, z) {
-    let winner = document.getElementById("winner");
-    if (board[x][z] == RedP) {
-        winner.innerText = "Way to Go Red!!!";             
-    } else {
-        winner.innerText = "Way to Go Yellow!!";
-    }
-    gameOver = true;
+return false;
 }
+
+function checkDirection(row, col, dirRow, dirCol, player) {
+for(let i = 0; i < 4; i++) {
+    if(row < 0 || row > 5 || col < 0 || col > 6 || board[row][col] !== player) return false;
+    row += dirRow;
+    col += dirCol;
+}
+return true;
+}
+
+function restartGame() {
+board = Array(6).fill().map(() => Array(7).fill(0));
+currentPlayer = 1;
+gameActive = true;
+document.getElementById('message').innerText = 'Player Red\'s turn';
+document.getElementById('restart').style.display = 'none';
+createBoard();
+}
+
+createBoard();
